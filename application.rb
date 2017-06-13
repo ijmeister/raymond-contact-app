@@ -1,3 +1,5 @@
+include Recaptcha::Verify
+
 before do
   content_type :json
   headers 'Access-Control-Allow-Origin' => '*',
@@ -13,7 +15,7 @@ post '/send_email' do
     res = Pony.mail(
       :from => params[:name] + "<" + params[:email] + ">",
       :to => 'raymond.psaung@gmail.com',
-      :subject => "[YOUR FILTER] " + params[:subject],
+      :subject => "[Portfolio Contact] " + params[:subject],
       :body => params[:message],
       :via => :smtp,
       :via_options => {

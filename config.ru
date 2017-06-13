@@ -14,7 +14,6 @@ Recaptcha.configure do |config|
 end
 
 # include Recaptcha::ClientHelper
-include Recaptcha::Verify
 
 require './application'
 run Sinatra::Application
