@@ -14,7 +14,7 @@ post '/send_email' do
   if verify_recaptcha
     res = Pony.mail(
       :from => params[:name] + "<" + params[:email] + ">",
-      :to => 'raymond.psaung@gmail.com',
+      :to => ENV['MY_EMAIL'],
       :subject => "[Portfolio Contact] " + params[:subject],
       :body => params[:message],
       :via => :smtp,
